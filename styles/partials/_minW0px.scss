@@ -12,3 +12,28 @@ html {
     125% = units of 20px
      */
 }
+
+.img-container {
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+.content-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-carousel {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.carousel-cell {
+  width: 100%;
+}

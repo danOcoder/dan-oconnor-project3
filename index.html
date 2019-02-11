@@ -9,22 +9,43 @@
   <!-- <link href="https://fonts.googleapis.com/css?family=Chathura:400,700|Tulpen+One" rel="stylesheet"> -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
     crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
-
-  <div>
-    <button class="overRated">
-      over rated
-    </button>
-    <button class="underRated">
-      under rated
-    </button>
-
-    <span id="text"></span>
+  <div class="main-carousel">
+    <div class="carousel-cell">
+      <div class="content-wrap">
+        <div class="img-container">
+          <img src="./assets/hot-dog.jpg" alt="4 hot dogs spread around a serving of fries with 3 cans of soda to the right">
+        </div>
+        <button class="over-rated">
+          over rated
+        </button>
+        <button class="under-rated">
+          under rated
+        </button>
+        <span id="text"></span>
+      </div>
+    </div>
+    <div class="carousel-cell">
+      <div class="content-wrap">
+        <div class="img-container">
+          <img src="./assets/sushi.jpg" alt="person sitting in front of sushi dish on table">
+        </div>
+        <button class="over-rated">
+          over rated
+        </button>
+        <button class="under-rated">
+          under rated
+        </button>
+        <span id="text2"></span>
+      </div>
+    </div>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script src="scripts/main.js"></script>
 </body>
 

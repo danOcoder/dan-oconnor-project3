@@ -4,10 +4,10 @@ function successFunc(data) {
 
 let updateUseraccount
 
-const userCount = (param) => {
+const userCount = () => {
   var url = "https://sheetsu.com/apis/v1.0su/6dd50df793f9/search";
   var params = {
-    "item": "sushi"
+    "item": "ketchupHotdog"
   };
   $.ajax({
     url: url,
@@ -16,10 +16,11 @@ const userCount = (param) => {
   }).then(function (res) {
     console.log(res[0].userCount);
     updateUseraccount = parseInt(res[0].userCount);
+    updateUseraccount++
     console.log(updateUseraccount);
-    return updateUseraccount
   })
 
+  return updateUseraccount
 }
 
 const update = function (param1, param2, param3) {
@@ -37,7 +38,12 @@ const update = function (param1, param2, param3) {
 
 }
 
-$('.overRated').on('click', function () {
-
-  update('item', 'sushi', userCount())
+$('.over-rated').on('click', function () {
+  update('item', 'ketchupHotdog', userCount())
 })
+
+$('.main-carousel').flickity({
+  // options
+  cellAlign: 'left',
+  contain: true
+});
