@@ -27,17 +27,17 @@ app.returnPercentage = (index, column, data) => {
   if (column === 'overatedCount') {
     let value = Math.floor(parseFloat(data[index].overatedPercent) * 100);
     $('.result').append(`
-    <h2>${value.toString()}% of people agree with you</h2>
+    <p>${value.toString()}% of people agree with you</p>
     `)
   } else if (column === 'underatedCount') {
     let value = Math.floor(parseFloat(data[index].underRatedPercent) * 100);
     $('.result').append(`
-    <h2>${value.toString()}% of people agree with you</h2>
+    <p>${value.toString()}% of people agree with you</p>
     `)
   } else if (column === 'accuratelyRatedCount') {
     let value = Math.floor(parseFloat(data[index].accRatedPercent) * 100);
     $('.result').append(`
-    <h2>${value.toString()}% of people agree with you</h2>
+    <p>${value.toString()}% of people agree with you</p>
     `)
   }
 }
@@ -47,19 +47,18 @@ app.updateUserCount = (itemName, newVal) => {
     type: 'PATCH',
     url: `https://sheetsu.com/apis/v1.0bu/6dd50df793f9/item/${itemName}`,
     data: {
-      "userCount": newVal
+      'userCount': newVal
     },
     success: app.successFunc
   });
 }
-
 
 app.updateOverRatedCount = (itemName, newVal) => {
   $.ajax({
     type: 'PATCH',
     url: `https://sheetsu.com/apis/v1.0bu/6dd50df793f9/item/${itemName}`,
     data: {
-      "overatedCount": newVal
+      'overatedCount': newVal
     },
     success: app.successFunc
   });
@@ -70,7 +69,7 @@ app.updateUnderRatedCount = (itemName, newVal) => {
     type: 'PATCH',
     url: `https://sheetsu.com/apis/v1.0bu/6dd50df793f9/item/${itemName}`,
     data: {
-      "underatedCount": newVal
+      'underatedCount': newVal
     },
     success: app.successFunc
   });
@@ -81,7 +80,7 @@ app.updateAccuratelyRatedCount = (itemName, newVal) => {
     type: 'PATCH',
     url: `https://sheetsu.com/apis/v1.0bu/6dd50df793f9/item/${itemName}`,
     data: {
-      "accuratelyRatedCount": newVal
+      'accuratelyRatedCount': newVal
     },
     success: app.successFunc
   });
@@ -91,22 +90,22 @@ app.buttonClick = () => {
   $('#over-rated').on('click', function () {
     const currentItem = $(this).attr('class');
     const currentItemIndex = parseInt($(this).attr('data-index'))
-    app.returnInfo(app.updateOverRatedCount, currentItem, currentItemIndex, "overatedCount")
-    app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, "userCount")
+    app.returnInfo(app.updateOverRatedCount, currentItem, currentItemIndex, 'overatedCount')
+    app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, 'userCount')
   })
 
   $('#under-rated').on('click', function () {
     const currentItem = $(this).attr('class');
     const currentItemIndex = parseInt($(this).attr('data-index'))
-    app.returnInfo(app.updateUnderRatedCount, currentItem, currentItemIndex, "underatedCount")
-    app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, "userCount")
+    app.returnInfo(app.updateUnderRatedCount, currentItem, currentItemIndex, 'underatedCount')
+    app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, 'userCount')
   })
 
   $('#accurately-rated').on('click', function () {
     const currentItem = $(this).attr('class');
     const currentItemIndex = parseInt($(this).attr('data-index'))
-    app.returnInfo(app.updateAccuratelyRatedCount, currentItem, currentItemIndex, "accuratelyRatedCount")
-    app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, "userCount")
+    app.returnInfo(app.updateAccuratelyRatedCount, currentItem, currentItemIndex, 'accuratelyRatedCount')
+    app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, 'userCount')
   })
 }
 

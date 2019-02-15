@@ -6,7 +6,7 @@
   <title>Dan O'Connor Project Three</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link type="image/png" href="assets/favicon.PNG" rel="icon">
-  <!-- <link href="https://fonts.googleapis.com/css?family=Chathura:400,700|Tulpen+One" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Chathura:400,700|Tulpen+One" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
@@ -14,26 +14,31 @@
 </head>
 
 <body>
-  <div class="main-carousel">
-    <div class="carousel-cell">
-      <div class="content-wrap">
-
-        <div class="img-container">
-          <img src="./assets/hot-dog.jpg" alt="2 hot dogs & fries on a red tray">
+  <div class="wrapper">
+    <h1>Cohort 21 Overrated/Underrated Survey</h1>
+    <div class="main-carousel">
+      <div class="carousel-cell">
+        <div class="content-wrap">
+          <div class="img-container">
+            <img src="./assets/hot-dog.jpg" alt="2 hot dogs & fries on a red tray">
+          </div>
+          <h2>Ketchup on a Hotdog:</h2>
+          <button id="over-rated" data-index="0" class="ketchup-hotdog">
+            over rated
+          </button>
+          <button id="under-rated" data-index="0" class="ketchup-hotdog">
+            under rated
+          </button>
+          <button id="accurately-rated" data-index="0" class="ketchup-hotdog">
+            accurately rated
+          </button>
+          <div class="result">
+            <p>80% of people agee</p>
+          </div>
         </div>
-        <button id="over-rated" data-index="0" class="ketchup-hotdog">
-          over rated
-        </button>
-        <button id="under-rated" data-index="0" class="ketchup-hotdog">
-          under rated
-        </button>
-        <button id="accurately-rated" data-index="0" class="ketchup-hotdog">
-          accurately rated
-        </button>
       </div>
     </div>
   </div>
-  <div class="result"></div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script src="scripts/main.js"></script>

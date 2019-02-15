@@ -1,5 +1,10 @@
 /**** Variables ****/
 
+$lightPurple: #98878f;
+$purple: #985E6D;
+$lightBlue: #494E6B;
+$darkBlue:#192231;
+
 /**** Mixins ****/
 
 /**** Global Styles ****/
@@ -11,6 +16,10 @@ html {
     93.7% = units of 15px
     125% = units of 20px
      */
+}
+
+h1 {
+  font-family: 
 }
 
 body {
