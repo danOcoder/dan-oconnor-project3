@@ -192,6 +192,9 @@ html {
     125% = units of 20px
      */ }
 
+body {
+  text-align: center; }
+
 .img-container {
   overflow: hidden;
   margin: 0 auto; }

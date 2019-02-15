@@ -1,6 +1,6 @@
 const app = {}
 
-app.flickGallery = function () {
+app.flickGallery = () => {
   $('.main-carousel').flickity({
     // options
     cellAlign: 'left',
@@ -9,22 +9,42 @@ app.flickGallery = function () {
   });
 }
 
-app.successFunc = function (data) {
+app.successFunc = (data) => {
   console.log(data);
 }
 
-app.returnInfo = function (func, itemName, index, column) {
+app.returnInfo = (func, itemName, index, column) => {
   $.ajax({
     url: 'https://sheetsu.com/apis/v1.0su/6dd50df793f9',
     success: app.successFunc
-  }).then(function (data) {
+  }).then((data) => {
     func(itemName, parseInt(data[index][column]) + 1)
+    app.returnPercentage(index, column, data)
   })
 }
 
-app.updateUserCount = function (itemName, newVal) {
+app.returnPercentage = (index, column, data) => {
+  if (column === 'overatedCount') {
+    let value = Math.floor(parseFloat(data[index].overatedPercent) * 100);
+    $('.result').append(`
+    <h2>${value.toString()}% of people agree with you</h2>
+    `)
+  } else if (column === 'underatedCount') {
+    let value = Math.floor(parseFloat(data[index].underRatedPercent) * 100);
+    $('.result').append(`
+    <h2>${value.toString()}% of people agree with you</h2>
+    `)
+  } else if (column === 'accuratelyRatedCount') {
+    let value = Math.floor(parseFloat(data[index].accRatedPercent) * 100);
+    $('.result').append(`
+    <h2>${value.toString()}% of people agree with you</h2>
+    `)
+  }
+}
+
+app.updateUserCount = (itemName, newVal) => {
   $.ajax({
-    type: "PATCH",
+    type: 'PATCH',
     url: `https://sheetsu.com/apis/v1.0bu/6dd50df793f9/item/${itemName}`,
     data: {
       "userCount": newVal
@@ -33,9 +53,10 @@ app.updateUserCount = function (itemName, newVal) {
   });
 }
 
-app.updateOverRatedCount = function (itemName, newVal) {
+
+app.updateOverRatedCount = (itemName, newVal) => {
   $.ajax({
-    type: "PATCH",
+    type: 'PATCH',
     url: `https://sheetsu.com/apis/v1.0bu/6dd50df793f9/item/${itemName}`,
     data: {
       "overatedCount": newVal
@@ -44,9 +65,9 @@ app.updateOverRatedCount = function (itemName, newVal) {
   });
 }
 
-app.updateUnderRatedCount = function (itemName, newVal) {
+app.updateUnderRatedCount = (itemName, newVal) => {
   $.ajax({
-    type: "PATCH",
+    type: 'PATCH',
     url: `https://sheetsu.com/apis/v1.0bu/6dd50df793f9/item/${itemName}`,
     data: {
       "underatedCount": newVal
@@ -55,9 +76,9 @@ app.updateUnderRatedCount = function (itemName, newVal) {
   });
 }
 
-app.updateAccuratelyRatedCount = function (itemName, newVal) {
+app.updateAccuratelyRatedCount = (itemName, newVal) => {
   $.ajax({
-    type: "PATCH",
+    type: 'PATCH',
     url: `https://sheetsu.com/apis/v1.0bu/6dd50df793f9/item/${itemName}`,
     data: {
       "accuratelyRatedCount": newVal
@@ -66,7 +87,7 @@ app.updateAccuratelyRatedCount = function (itemName, newVal) {
   });
 }
 
-app.buttonClick = function () {
+app.buttonClick = () => {
   $('#over-rated').on('click', function () {
     const currentItem = $(this).attr('class');
     const currentItemIndex = parseInt($(this).attr('data-index'))
@@ -89,11 +110,10 @@ app.buttonClick = function () {
   })
 }
 
-app.init = function () {
+app.init = () => {
   app.flickGallery();
   app.buttonClick();
 }
-
 
 $(document).ready(function () {
   app.init()
