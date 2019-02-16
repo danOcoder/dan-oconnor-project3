@@ -26,17 +26,17 @@ app.returnInfo = (func, itemName, index, column) => {
 app.returnPercentage = (index, column, data) => {
   if (column === 'overatedCount') {
     let value = Math.floor(parseFloat(data[index].overatedPercent) * 100);
-    $('.result').append(`
+    $('.result').html(`
     <p>${value.toString()}% of people agree with you</p>
     `)
   } else if (column === 'underatedCount') {
     let value = Math.floor(parseFloat(data[index].underRatedPercent) * 100);
-    $('.result').append(`
+    $('.result').html(`
     <p>${value.toString()}% of people agree with you</p>
     `)
   } else if (column === 'accuratelyRatedCount') {
     let value = Math.floor(parseFloat(data[index].accRatedPercent) * 100);
-    $('.result').append(`
+    $('.result').html(`
     <p>${value.toString()}% of people agree with you</p>
     `)
   }
@@ -87,25 +87,28 @@ app.updateAccuratelyRatedCount = (itemName, newVal) => {
 }
 
 app.buttonClick = () => {
-  $('#over-rated').on('click', function () {
+  $('[data-selection="over-rated"]').on('click', function () {
     const currentItem = $(this).attr('class');
     const currentItemIndex = parseInt($(this).attr('data-index'))
     app.returnInfo(app.updateOverRatedCount, currentItem, currentItemIndex, 'overatedCount')
     app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, 'userCount')
+    $('.button-wrap').fadeOut()
   })
 
-  $('#under-rated').on('click', function () {
+  $('[data-selection="under-rated"]').on('click', function () {
     const currentItem = $(this).attr('class');
     const currentItemIndex = parseInt($(this).attr('data-index'))
     app.returnInfo(app.updateUnderRatedCount, currentItem, currentItemIndex, 'underatedCount')
     app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, 'userCount')
+    $('.button-wrap').fadeOut()
   })
 
-  $('#accurately-rated').on('click', function () {
+  $('[data-selection="accurately-rated"]').on('click', function () {
     const currentItem = $(this).attr('class');
     const currentItemIndex = parseInt($(this).attr('data-index'))
     app.returnInfo(app.updateAccuratelyRatedCount, currentItem, currentItemIndex, 'accuratelyRatedCount')
     app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, 'userCount')
+    // $('.button-wrap').fadeOut()
   })
 }
 

@@ -6,7 +6,7 @@
   <title>Dan O'Connor Project Three</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link type="image/png" href="assets/favicon.PNG" rel="icon">
-  <link href="https://fonts.googleapis.com/css?family=Chathura:400,700|Tulpen+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display|Roboto+Mono" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
@@ -15,7 +15,7 @@
 
 <body>
   <div class="wrapper">
-    <h1>Cohort 21 Overrated/Underrated Survey</h1>
+    <h1>overrated or underrated?</h1>
     <div class="main-carousel">
       <div class="carousel-cell">
         <div class="content-wrap">
@@ -23,18 +23,218 @@
             <img src="./assets/hot-dog.jpg" alt="2 hot dogs & fries on a red tray">
           </div>
           <h2>Ketchup on a Hotdog:</h2>
-          <button id="over-rated" data-index="0" class="ketchup-hotdog">
-            over rated
-          </button>
-          <button id="under-rated" data-index="0" class="ketchup-hotdog">
-            under rated
-          </button>
-          <button id="accurately-rated" data-index="0" class="ketchup-hotdog">
-            accurately rated
-          </button>
-          <div class="result">
-            <p>80% of people agee</p>
+          <div class="button-wrap">
+            <button data-selection="over-rated" data-index="0" class="ketchup-hotdog">
+              Overrated
+            </button>
+            <button data-selection="under-rated" data-index="0" class="ketchup-hotdog">
+              Underrated
+            </button>
+            <button data-selection="accurately-rated" data-index="0" class="ketchup-hotdog">
+              Accurately Rated
+            </button>
           </div>
+          <div class="result"></div>
+        </div>
+      </div>
+      <div class="carousel-cell">
+        <div class="content-wrap">
+          <div class="img-container">
+            <img src="./assets/hot-dog-2.jpg" alt="plain hot dog in a bun on a red background">
+          </div>
+          <h2>Opinion a Hotdog is a Sandwhich:</h2>
+          <div class="button-wrap">
+            <button data-selection="over-rated" data-index="1" class="hot-dog-sandwhich">
+              Overrated
+            </button>
+            <button data-selection="under-rated" data-index="1" class="hot-dog-sandwhich">
+              Underrated
+            </button>
+            <button data-selection="accurately-rated" data-index="1" class="hot-dog-sandwhich">
+              Accurately Rated
+            </button>
+          </div>
+          <div class="result"></div>
+        </div>
+      </div>
+      <div class="carousel-cell">
+        <div class="content-wrap">
+          <div class="img-container">
+            <img src="./assets/sushi.jpg" alt="person sitting at a table taking a picture of sushi">
+          </div>
+          <h2>Sushi:</h2>
+          <div class="button-wrap">
+            <button data-selection="over-rated" data-index="2" class="sushi">
+              Overrated
+            </button>
+            <button id="under-rated" data-index="2" class="sushi">
+              Underrated
+            </button>
+            <button data-selection="accurately-rated" data-index="2" class="sushi">
+              Accurately Rated
+            </button>
+          </div>
+          <div class="result"></div>
+        </div>
+      </div>
+      <div class="carousel-cell">
+        <div class="content-wrap">
+          <div class="img-container">
+            <img src="./assets/true-detective-season-2.jpg" alt="still shot from televsion show, shows 2 male characters sitting at a table in a bar">
+          </div>
+          <h2>True Detective Season 2:</h2>
+          <div class="button-wrap">
+            <button data-selection="over-rated" data-index="3" class="true-det">
+              Overrated
+            </button>
+            <button data-selection="under-rated" data-index="3" class="true-det">
+              Underrated
+            </button>
+            <button data-selection="accurately-rated" data-index="3" class="true-det">
+              Accurately Rated
+            </button>
+          </div>
+          <div class="result"></div>
+        </div>
+      </div>
+      <div class="carousel-cell">
+        <div class="content-wrap">
+          <div class="img-container">
+            <img src="./assets/pumpkin-spice.jpg" alt="woman drinking starbucks coffee">
+          </div>
+          <h2>Pumkin Spice Latte:</h2>
+          <div class="button-wrap">
+            <button data-selection="over-rated" data-index="4" class="pumpkin-spice">
+              Overrated
+            </button>
+            <button data-selection="under-rated" data-index="4" class="pumpkin-spice">
+              Underrated
+            </button>
+            <button data-selection="accurately-rated" data-index="4" class="pumpkin-spice">
+              Accurately Rated
+            </button>
+          </div>
+          <div class="result"></div>
+        </div>
+      </div>
+      <div class="carousel-cell">
+        <div class="content-wrap">
+          <div class="img-container">
+            <img src="./assets/cats.jpg" alt="close up of a cat">
+          </div>
+          <h2>Cats:</h2>
+          <div class="button-wrap">
+            <button data-selection="over-rated" data-index="5" class="cats">
+              Overrated
+            </button>
+            <button data-selection="under-rated" data-index="5" class="cats">
+              Underrated
+            </button>
+            <button data-selection="accurately-rated" data-index="5" class="cats">
+              Accurately Rated
+            </button>
+          </div>
+          <div class="result"></div>
+        </div>
+      </div>
+      <div class="carousel-cell">
+        <div class="content-wrap">
+          <div class="img-container">
+            <img src="./assets/brussel-sprouts.jpg" alt="brussel sprouts on a wooden board">
+          </div>
+          <h2>Brussel Sprouts:</h2>
+          <div class="button-wrap">
+            <button data-selection="over-rated" data-index="6" class="brussel-sprouts">
+              Overrated
+            </button>
+            <button data-selection="under-rated" data-index="6" class="brussel-sprouts">
+              Underrated
+            </button>
+            <button data-selection="accurately-rated" data-index="6" class="brussel-sprouts">
+              Accurately Rated
+            </button>
+          </div>
+          <div class="result"></div>
+        </div>
+      </div>
+      <div class="carousel-cell">
+        <div class="content-wrap">
+          <div class="img-container">
+            <img src="./assets/cheese-burger.jpg" alt="close up of a cheese burger">
+          </div>
+          <h2>Cheese Burgers:</h2>
+          <div class="button-wrap">
+            <button data-selection="over-rated" data-index="7" class="cheese-burgers">
+              Overrated
+            </button>
+            <button data-selection="under-rated" data-index="7" class="cheese-burgers">
+              Underrated
+            </button>
+            <button data-selection="accurately-rated" data-index="7" class="cheese-burgers">
+              Accurately Rated
+            </button>
+          </div>
+          <div class="result"></div>
+        </div>
+      </div>
+      <div class="carousel-cell">
+        <div class="content-wrap">
+          <div class="img-container">
+            <img src="./assets/drake.jpg" alt="illustration of drake hugging a moose">
+          </div>
+          <h2>Drake:</h2>
+          <div class="button-wrap">
+            <button data-selection="over-rated" data-index="8" class="drake">
+              Overrated
+            </button>
+            <button data-selection="under-rated" data-index="8" class="drake">
+              Underrated
+            </button>
+            <button data-selection="accurately-rated" data-index="8" class="drake">
+              Accurately Rated
+            </button>
+          </div>
+          <div class="result"></div>
+        </div>
+      </div>
+      <div class="carousel-cell">
+        <div class="content-wrap">
+          <div class="img-container">
+            <img src="./assets/floats.png" alt="graphic with css3 logo & the word grid">
+          </div>
+          <h2>CSS Grid:</h2>
+          <div class="button-wrap">
+            <button data-selection="over-rated" data-index="9" class="css-grid">
+              Overrated
+            </button>
+            <button data-selection="under-rated" data-index="9" class="css-grid">
+              Underrated
+            </button>
+            <button data-selection="accurately-rated" data-index="9" class="css-grid">
+              Accurately Rated
+            </button>
+          </div>
+          <div class="result"></div>
+        </div>
+      </div>
+      <div class="carousel-cell">
+        <div class="content-wrap">
+          <div class="img-container">
+            <img src="./assets/fries.jpg" alt="fries & a milkshake on a table">
+          </div>
+          <h2>Dipping Fries in a Milkshake:</h2>
+          <div class="button-wrap">
+            <button data-selection="over-rated" data-index="10" class="fries-in-sundae">
+              Overrated
+            </button>
+            <button data-selection="under-rated" data-index="10" class="fries-in-sundae">
+              Underrated
+            </button>
+            <button data-selection="accurately-rated" data-index="10" class="fries-in-sundae">
+              Accurately Rated
+            </button>
+          </div>
+          <div class="result"></div>
         </div>
       </div>
     </div>

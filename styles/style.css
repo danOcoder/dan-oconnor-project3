@@ -193,7 +193,31 @@ html {
      */ }
 
 body {
-  text-align: center; }
+  text-align: center;
+  background-color: #192231; }
+
+h1 {
+  font-family: 'Major Mono Display', monospace;
+  padding: 40px 0; }
+
+h1,
+h2,
+p {
+  color: #ffffff; }
+
+h2,
+p,
+.selection {
+  font-family: 'Roboto Mono', monospace; }
+
+h2,
+p {
+  padding: 25px 0; }
+
+.wrapper {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto; }
 
 .img-container {
   overflow: hidden;
@@ -214,8 +238,28 @@ img {
   flex-direction: column; }
 
 .main-carousel {
-  width: 90%;
+  width: 70%;
   margin: 0 auto; }
 
 .carousel-cell {
   width: 100%; }
+
+.button-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+  .button-wrap button {
+    color: #192231;
+    background-color: #985E6D;
+    border: none;
+    margin: 5px auto;
+    padding: 10px 20px; }
+    .button-wrap button:hover {
+      color: #ffffff; }
