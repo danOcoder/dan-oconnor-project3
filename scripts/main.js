@@ -3,9 +3,11 @@ const app = {}
 app.flickGallery = () => {
   $('.main-carousel').flickity({
     // options
+    fade: true,
     cellAlign: 'left',
     contain: true,
-    pageDots: false
+    pageDots: false,
+    draggable: false
   });
 }
 
@@ -26,19 +28,19 @@ app.returnInfo = (func, itemName, index, column) => {
 app.returnPercentage = (index, column, data) => {
   if (column === 'overatedCount') {
     let value = Math.floor(parseFloat(data[index].overatedPercent) * 100);
-    $('.result').html(`
+    $('.result').hide().html(`
     <p>${value.toString()}% of people agree with you</p>
-    `)
+    `).fadeIn(2000, 'linear')
   } else if (column === 'underatedCount') {
     let value = Math.floor(parseFloat(data[index].underRatedPercent) * 100);
-    $('.result').html(`
+    $('.result').hide().html(`
     <p>${value.toString()}% of people agree with you</p>
-    `)
+    `).fadeIn(2000, 'linear')
   } else if (column === 'accuratelyRatedCount') {
     let value = Math.floor(parseFloat(data[index].accRatedPercent) * 100);
-    $('.result').html(`
+    $('.result').hide().html(`
     <p>${value.toString()}% of people agree with you</p>
-    `)
+    `).fadeIn(2000, 'linear')
   }
 }
 
@@ -86,13 +88,13 @@ app.updateAccuratelyRatedCount = (itemName, newVal) => {
   });
 }
 
-app.buttonClick = () => {
+app.userChoice = () => {
   $('[data-selection="over-rated"]').on('click', function () {
     const currentItem = $(this).attr('class');
     const currentItemIndex = parseInt($(this).attr('data-index'))
     app.returnInfo(app.updateOverRatedCount, currentItem, currentItemIndex, 'overatedCount')
     app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, 'userCount')
-    $('.button-wrap').fadeOut()
+    app.hideButtonWrap()
   })
 
   $('[data-selection="under-rated"]').on('click', function () {
@@ -100,7 +102,7 @@ app.buttonClick = () => {
     const currentItemIndex = parseInt($(this).attr('data-index'))
     app.returnInfo(app.updateUnderRatedCount, currentItem, currentItemIndex, 'underatedCount')
     app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, 'userCount')
-    $('.button-wrap').fadeOut()
+    app.hideButtonWrap()
   })
 
   $('[data-selection="accurately-rated"]').on('click', function () {
@@ -108,15 +110,27 @@ app.buttonClick = () => {
     const currentItemIndex = parseInt($(this).attr('data-index'))
     app.returnInfo(app.updateAccuratelyRatedCount, currentItem, currentItemIndex, 'accuratelyRatedCount')
     app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, 'userCount')
-    // $('.button-wrap').fadeOut()
+    app.hideButtonWrap()
+  })
+}
+
+app.hideButtonWrap = () => {
+  $('.button-wrap').fadeOut(1600, 'linear')
+}
+
+app.showButtonWrap = () => {
+  $('.next').on('click', function () {
+    $('.button-wrap').fadeIn(1600, 'linear')
+    $('.result').html('')
   })
 }
 
 app.init = () => {
   app.flickGallery();
-  app.buttonClick();
+  app.userChoice();
+  app.showButtonWrap();
 }
 
 $(document).ready(function () {
-  app.init()
+  app.init();
 });

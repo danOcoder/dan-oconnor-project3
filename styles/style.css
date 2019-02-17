@@ -185,7 +185,7 @@ input {
 /**** Mixins ****/
 /**** Global Styles ****/
 html {
-  font-size: 125%;
+  font-size: 93.75%;
   /*
     62.5% = units of 10px
     93.7% = units of 15px
@@ -198,7 +198,7 @@ body {
 
 h1 {
   font-family: 'Major Mono Display', monospace;
-  padding: 40px 0; }
+  padding: 80px 0 40px 0; }
 
 h1,
 h2,
@@ -209,10 +209,6 @@ h2,
 p,
 .selection {
   font-family: 'Roboto Mono', monospace; }
-
-h2,
-p {
-  padding: 25px 0; }
 
 .wrapper {
   width: 90%;
@@ -237,14 +233,27 @@ img {
   -ms-flex-direction: column;
   flex-direction: column; }
 
+/**** Header ****/
+header {
+  min-height: 50vh;
+  padding: 1px; }
+
+/**** Main ****/
+main {
+  min-height: 50vh; }
+
 .main-carousel {
-  width: 70%;
+  width: 100;
   margin: 0 auto; }
 
 .carousel-cell {
   width: 100%; }
 
-.button-wrap {
+.previous {
+  display: none; }
+
+.caption-wrap {
+  min-height: 109px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -252,6 +261,21 @@ img {
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.button-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between; }
@@ -259,7 +283,17 @@ img {
     color: #192231;
     background-color: #985E6D;
     border: none;
-    margin: 5px auto;
-    padding: 10px 20px; }
+    margin: 15px auto;
+    padding: 20px 20px; }
     .button-wrap button:hover {
       color: #ffffff; }
+
+.result {
+  width: 80%;
+  margin: 0 auto; }
+  .result p {
+    background-color: pink;
+    padding: 25px 0; }
+
+footer {
+  padding: 1px; }
