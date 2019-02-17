@@ -376,11 +376,46 @@ footer {
     top: 20%; } }
 
 @media (min-width: 768px) {
+  /**** Global Styles ****/
+  html {
+    font-size: 125%;
+    /*
+      62.5% = units of 10px
+      93.7% = units of 15px
+      125% = units of 20px
+       */ }
+  h1 {
+    font-family: 'Major Mono Display', monospace;
+    font-size: 2rem;
+    padding: 120px 0 60px 0; }
   /**** Header ****/
   header {
-    min-height: 50vh;
+    min-height: 60vh;
     padding: 1px; }
   /**** Flickity ****/
-  .main-carousel {
-    width: 80%;
-    margin: 0 auto; } }
+  /**** Main ****/
+  .button-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+    .button-wrap button {
+      font-size: 1.333rem;
+      color: #192231;
+      background-color: #985E6D;
+      border: none;
+      border-radius: 5px;
+      margin: 15px auto;
+      padding: 20px 20px; }
+      .button-wrap button:hover {
+        color: #ffffff;
+        background-color: #494E6B;
+        -webkit-transform: scale(1.25);
+        -ms-transform: scale(1.25);
+        transform: scale(1.25); } }

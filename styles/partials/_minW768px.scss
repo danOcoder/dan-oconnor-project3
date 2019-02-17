@@ -1,17 +1,50 @@
 @media (min-width: 768px) {
 
+  /**** Global Styles ****/
+
+  html {
+    font-size: 125%;
+    /*
+      62.5% = units of 10px
+      93.7% = units of 15px
+      125% = units of 20px
+       */
+  }
+
+  h1 {
+    padding: 120px 0 60px 0;
+  }
+
   /**** Header ****/
 
   header {
-    min-height: 50vh;
-    padding: 1px;
+    min-height: 60vh;
   }
 
   /**** Flickity ****/
 
-  .main-carousel {
-    width: 80%;
-    margin: 0 auto;
+  /**** Main ****/
+
+  .button-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    button {
+      font-size: 1.333rem;
+      color: $darkBlue;
+      background-color: $purple;
+      border: none;
+      border-radius: 5px;
+      margin: 15px auto;
+      padding: 20px 20px;
+
+      &:hover {
+        color: $white;
+        background-color: $lightBlue;
+        transform: scale(1.25);
+      }
+    }
   }
 
 
