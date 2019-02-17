@@ -23,28 +23,15 @@
 
   /**** Flickity ****/
 
+  .flickity-prev-next-button {
+    width: 70px;
+    height: 70px;
+  }
+
   /**** Main ****/
 
   .button-wrap {
-    display: flex;
     flex-direction: row;
-    justify-content: space-between;
-
-    button {
-      font-size: 1.333rem;
-      color: $darkBlue;
-      background-color: $purple;
-      border: none;
-      border-radius: 5px;
-      margin: 15px auto;
-      padding: 20px 20px;
-
-      &:hover {
-        color: $white;
-        background-color: $lightBlue;
-        transform: scale(1.25);
-      }
-    }
   }
 
 

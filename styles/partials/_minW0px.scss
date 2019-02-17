@@ -36,7 +36,7 @@ h2 {
 
 p,
 .button-wrap button,
-i {
+.social-button i {
   font-size: 1.333rem;
 }
 
@@ -106,11 +106,8 @@ header {
 }
 
 .flickity-prev-next-button.next {
-  right: 10px;
-}
-
-.flickity-prev-next-button {
   top: 15%;
+  right: 10%;
 }
 
 /**** Main ****/
@@ -175,7 +172,7 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-bottom: 60px;
+  margin: 0 auto 60px;
 
   .social-button {
     display: flex;

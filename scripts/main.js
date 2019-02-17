@@ -26,19 +26,19 @@ app.returnInfo = (func, itemName, index, column) => {
 app.returnPercentage = (index, column, data) => {
   if (column === 'overatedCount') {
     let value = Math.floor(parseFloat(data[index].overatedPercent) * 100);
-    $('.result').html(`
+    $('.result').hide().html(`
     <p>${value.toString()}% of people agree with you</p>
-    `)
+    `).fadeIn(1600, 'linear')
   } else if (column === 'underatedCount') {
     let value = Math.floor(parseFloat(data[index].underRatedPercent) * 100);
-    $('.result').html(`
+    $('.result').hide().html(`
     <p>${value.toString()}% of people agree with you</p>
-    `)
+    `).fadeIn(1600, 'linear')
   } else if (column === 'accuratelyRatedCount') {
     let value = Math.floor(parseFloat(data[index].accRatedPercent) * 100);
-    $('.result').html(`
+    $('.result').hide().html(`
     <p>${value.toString()}% of people agree with you</p>
-    `)
+    `).fadeIn(1600, 'linear')
   }
 }
 
@@ -123,10 +123,23 @@ app.showButtonWrap = () => {
   })
 }
 
+app.calcArrowPosition = () => {
+  let $halfImgHeight = $('.carousel-img').height() * 0.5
+  $('.flickity-prev-next-button.next ').css('top', `${$halfImgHeight}px`)
+}
+
+app.positionArrow = () => {
+  $(window).resize(function () {
+    app.calcArrowPosition()
+  })
+}
+
 app.init = () => {
   app.flickGallery();
   app.userChoice();
   app.showButtonWrap();
+  app.calcArrowPosition();
+  app.positionArrow();
 }
 
 $(document).ready(function () {
