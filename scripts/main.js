@@ -2,8 +2,6 @@ const app = {}
 
 app.flickGallery = () => {
   $('.main-carousel').flickity({
-    // options
-    fade: true,
     cellAlign: 'left',
     contain: true,
     pageDots: false,
@@ -28,19 +26,19 @@ app.returnInfo = (func, itemName, index, column) => {
 app.returnPercentage = (index, column, data) => {
   if (column === 'overatedCount') {
     let value = Math.floor(parseFloat(data[index].overatedPercent) * 100);
-    $('.result').hide().html(`
+    $('.result').html(`
     <p>${value.toString()}% of people agree with you</p>
-    `).fadeIn(2000, 'linear')
+    `)
   } else if (column === 'underatedCount') {
     let value = Math.floor(parseFloat(data[index].underRatedPercent) * 100);
-    $('.result').hide().html(`
+    $('.result').html(`
     <p>${value.toString()}% of people agree with you</p>
-    `).fadeIn(2000, 'linear')
+    `)
   } else if (column === 'accuratelyRatedCount') {
     let value = Math.floor(parseFloat(data[index].accRatedPercent) * 100);
-    $('.result').hide().html(`
+    $('.result').html(`
     <p>${value.toString()}% of people agree with you</p>
-    `).fadeIn(2000, 'linear')
+    `)
   }
 }
 

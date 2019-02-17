@@ -1,3 +1,19 @@
 @media (min-width: 480px) {
 
+  /**** Header ****/
+
+  header {
+    min-height: 40vh;
+    padding: 1px;
+  }
+
+  .flickity-prev-next-button.next {
+    right: 40px;
+  }
+
+  .flickity-prev-next-button {
+    top: 20%;
+  }
+
+
 }
