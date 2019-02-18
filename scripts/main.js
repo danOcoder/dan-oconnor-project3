@@ -93,6 +93,7 @@ app.userChoice = () => {
     app.returnInfo(app.updateOverRatedCount, currentItem, currentItemIndex, 'overatedCount')
     app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, 'userCount')
     app.hideButtonWrap()
+    $('.flickity-prev-next-button.next ').fadeIn(1600, 'linear')
   })
 
   $('[data-selection="under-rated"]').on('click', function () {
@@ -101,6 +102,7 @@ app.userChoice = () => {
     app.returnInfo(app.updateUnderRatedCount, currentItem, currentItemIndex, 'underatedCount')
     app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, 'userCount')
     app.hideButtonWrap()
+    $('.flickity-prev-next-button.next ').fadeIn(1600, 'linear')
   })
 
   $('[data-selection="accurately-rated"]').on('click', function () {
@@ -109,6 +111,7 @@ app.userChoice = () => {
     app.returnInfo(app.updateAccuratelyRatedCount, currentItem, currentItemIndex, 'accuratelyRatedCount')
     app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, 'userCount')
     app.hideButtonWrap()
+    $('.flickity-prev-next-button.next ').fadeIn(1600, 'linear')
   })
 }
 
@@ -125,12 +128,26 @@ app.showButtonWrap = () => {
 
 app.calcArrowPosition = () => {
   let $halfImgHeight = $('.carousel-img').height() * 0.5
-  $('.flickity-prev-next-button.next ').css('top', `${$halfImgHeight}px`)
+  $('.flickity-prev-next-button.next').hide().css('top', `${$halfImgHeight}px`)
 }
 
 app.positionArrow = () => {
   $(window).resize(function () {
     app.calcArrowPosition()
+  })
+}
+
+app.hideArrow = () => {
+  $('.flickity-prev-next-button.next').on('click', function () {
+    $('.flickity-prev-next-button.next').fadeOut(1600, 'linear')
+  })
+}
+
+app.scrollToCarousel = () => {
+  $('.down-arrow').on('click', function () {
+    $('html, body').animate({
+      scrollTop: $('.main-carousel').offset().top
+    }, 1600)
   })
 }
 
@@ -140,6 +157,8 @@ app.init = () => {
   app.showButtonWrap();
   app.calcArrowPosition();
   app.positionArrow();
+  app.hideArrow();
+  app.scrollToCarousel();
 }
 
 $(document).ready(function () {

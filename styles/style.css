@@ -182,7 +182,6 @@ input {
   border: none; }
 
 /**** Variables ****/
-/**** Mixins ****/
 /**** Global Styles ****/
 html {
   font-size: 93.75%;
@@ -197,12 +196,13 @@ body {
   background-color: #192231; }
 
 h1 {
-  font-family: 'Major Mono Display', monospace;
+  font-family: "Major Mono Display", monospace;
   font-size: 2rem;
   padding: 80px 0 60px 0; }
 
 h2 {
-  font-size: 1.667rem; }
+  font-size: 1.667rem;
+  font-family: "Major Mono Display", monospace; }
 
 p,
 .button-wrap button,
@@ -214,10 +214,9 @@ h2,
 p {
   color: #ffffff; }
 
-h2,
 p,
 .selection {
-  font-family: 'Roboto Mono', monospace; }
+  font-family: "Roboto Mono", monospace; }
 
 .wrapper {
   width: 90%;
@@ -239,6 +238,9 @@ header {
   min-height: 30vh;
   padding: 1px; }
 
+.down-arrow {
+  display: none; }
+
 /**** Flickity ****/
 .main-carousel {
   width: 100%;
@@ -259,8 +261,10 @@ header {
     background: rgba(72, 77, 106, 0.73); }
 
 .flickity-prev-next-button.next {
+  width: 90px;
+  height: 90px;
   top: 15%;
-  right: 10%; }
+  right: 40%; }
 
 /**** Main ****/
 main {
@@ -368,9 +372,6 @@ footer {
   header {
     min-height: 40vh; }
   /**** Flickity ****/
-  .flickity-prev-next-button {
-    width: 60px;
-    height: 60px; }
   /**** Footer ****/
   .social-icons {
     padding-top: 30px;
@@ -396,12 +397,59 @@ footer {
   header {
     min-height: 60vh; }
   /**** Flickity ****/
-  .flickity-prev-next-button {
-    width: 70px;
-    height: 70px; }
+  .flickity-prev-next-button.next {
+    width: 110px;
+    height: 110px; }
   /**** Main ****/
   .button-wrap {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row; } }
+
+@media (min-width: 992px) {
+  /**** Global Styles ****/
+  h1 {
+    padding: 150px 0; }
+  /**** Flickity ****/
+  .main-carousel {
+    width: 80%;
+    margin: 0 auto; } }
+
+@media (min-width: 1400px) {
+  /**** Global Styles ****/
+  h1 {
+    font-size: 2.5rem;
+    padding: 110px 0 60px 0; }
+  /**** Header ****/
+  header {
+    min-height: 100vh; }
+  .down-arrow {
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #494E6B;
+    color: #985E6D;
+    cursor: pointer; }
+    .down-arrow:hover {
+      background-color: #985E6D;
+      color: #494E6B;
+      -webkit-transform: scale(1.25);
+      -ms-transform: scale(1.25);
+      transform: scale(1.25); }
+    .down-arrow i {
+      font-size: 2.5rem; }
+  /**** Flickity ****/
+  .main-carousel {
+    width: 70%;
+    margin: 0 auto; } }

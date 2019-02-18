@@ -6,7 +6,11 @@ $lightBlue: #494E6B;
 $darkBlue:#192231;
 $white: #ffffff;
 
-/**** Mixins ****/
+$heading: 'Major Mono Display',
+monospace;
+$body: 'Roboto Mono',
+monospace;
+
 
 /**** Global Styles ****/
 
@@ -25,13 +29,14 @@ body {
 }
 
 h1 {
-  font-family: 'Major Mono Display', monospace;
+  font-family: $heading;
   font-size: 2rem;
   padding: 80px 0 60px 0;
 }
 
 h2 {
   font-size: 1.667rem;
+  font-family: $heading;
 }
 
 p,
@@ -46,11 +51,9 @@ p {
   color: $white;
 }
 
-
-h2,
 p,
 .selection {
-  font-family: 'Roboto Mono', monospace;
+  font-family: $body;
 }
 
 .wrapper {
@@ -78,6 +81,9 @@ header {
   padding: 1px;
 }
 
+.down-arrow {
+  display: none;
+}
 
 /**** Flickity ****/
 
@@ -106,8 +112,10 @@ header {
 }
 
 .flickity-prev-next-button.next {
+  width: 90px;
+  height: 90px;
   top: 15%;
-  right: 10%;
+  right: 40%;
 }
 
 /**** Main ****/
