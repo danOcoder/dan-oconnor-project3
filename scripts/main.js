@@ -25,10 +25,12 @@ app.returnInfo = (func, itemName, index, column) => {
 
 app.returnPercentage = (index, column, data) => {
   if (column === 'overatedCount') {
-    let value = Math.floor(parseFloat(data[index].overatedPercent) * 100);
-    $('.result').hide().html(`
-    <p>${value.toString()}% of people agree with you</p>
-    `).fadeIn(1600, 'linear')
+    let value = Math.floor(parseFloat(data[index].overatedPercent) * 100).toString();
+    $('.result').html(`
+    <p>${value}% of people agree with you</p>
+    `)
+    $('.result-wrap').hide().fadeIn(1600, 'linear')
+    app.graph(value)
   } else if (column === 'underatedCount') {
     let value = Math.floor(parseFloat(data[index].underRatedPercent) * 100);
     $('.result').hide().html(`
@@ -116,7 +118,7 @@ app.userChoice = () => {
 }
 
 app.hideButtonWrap = () => {
-  $('.button-wrap').fadeOut(1600, 'linear')
+  $('.button-wrap').fadeOut(1400, 'linear')
 }
 
 app.showButtonWrap = () => {
@@ -149,6 +151,14 @@ app.scrollToCarousel = () => {
       scrollTop: $('.main-carousel').offset().top
     }, 1600)
   })
+}
+
+app.graph = (value) => {
+  let $resultHeight = $('.result').height()
+  $('.graph').css('min-height', `${$resultHeight}px`)
+  $('.graph').animate({
+    width: `${value}%`
+  }, 1800)
 }
 
 app.init = () => {

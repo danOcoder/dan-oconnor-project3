@@ -163,11 +163,17 @@ main {
 .result {
   width: 80%;
   margin: 0 auto;
+  position: absolute;
 
   p {
-    background-color: pink;
+
     padding: 25px 0;
   }
+}
+
+.graph {
+  background-color: $purple;
+  width: 10%;
 }
 
 /**** Footer ****/
