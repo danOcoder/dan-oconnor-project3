@@ -397,6 +397,9 @@ footer {
   header {
     min-height: 60vh; }
   /**** Flickity ****/
+  .main-carousel {
+    width: 90%;
+    margin: 0 auto; }
   .flickity-prev-next-button.next {
     width: 110px;
     height: 110px; }
@@ -413,7 +416,7 @@ footer {
     padding: 150px 0; }
   /**** Flickity ****/
   .main-carousel {
-    width: 80%;
+    width: 70%;
     margin: 0 auto; } }
 
 @media (min-width: 1400px) {
@@ -451,5 +454,9 @@ footer {
       font-size: 2.5rem; }
   /**** Flickity ****/
   .main-carousel {
-    width: 70%;
-    margin: 0 auto; } }
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 40px; }
+  /**** Main ****/
+  .content-wrap {
+    margin-bottom: 80px; } }
