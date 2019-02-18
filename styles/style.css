@@ -322,9 +322,6 @@ main {
       -ms-transform: scale(1.25);
       transform: scale(1.25); }
 
-.result-wrap {
-  display: none; }
-
 .result {
   width: 80%;
   margin: 0 auto;
