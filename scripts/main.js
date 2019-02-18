@@ -1,4 +1,4 @@
-const app = {}
+const app = {};
 
 app.flickGallery = () => {
   $('.main-carousel').flickity({
@@ -10,44 +10,49 @@ app.flickGallery = () => {
 }
 
 app.successFunc = (data) => {
-  console.log(data);
+  // console.log(data);
 }
 
+// Makes a call to API to return data
 app.returnInfo = (func, itemName, index, column) => {
   $.ajax({
     url: 'https://sheetsu.com/apis/v1.0su/6dd50df793f9',
     success: app.successFunc
   }).then((data) => {
-    func(itemName, parseInt(data[index][column]) + 1)
-    app.returnPercentage(index, column, data)
-  })
-}
+    // Calling fucntion to return data on users who have made the same choice
+    app.returnPercentage(index, column, data);
+    // Calling function to record user choice & send back to API to increment
+    func(itemName, parseInt(data[index][column]) + 1);
+  });
+};
 
+// Converts data returned on historical user choices to % & displays on DOM
 app.returnPercentage = (index, column, data) => {
   if (column === 'overatedCount') {
     let value = Math.floor(parseFloat(data[index].overatedPercent) * 100).toString();
     $('.result').html(`
     <p>${value}% of people agree with you</p>
-    `)
-    $('.result-wrap').hide().fadeIn(1600, 'linear')
-    app.graph(value)
+    `);
+    $('.result-wrap').hide().fadeIn(1600, 'linear');
+    app.graph(value);
   } else if (column === 'underatedCount') {
     let value = Math.floor(parseFloat(data[index].overatedPercent) * 100).toString();
     $('.result').html(`
     <p>${value}% of people agree with you</p>
-    `)
-    $('.result-wrap').hide().fadeIn(1600, 'linear')
-    app.graph(value)
+    `);
+    $('.result-wrap').hide().fadeIn(1600, 'linear');
+    app.graph(value);
   } else if (column === 'accuratelyRatedCount') {
     let value = Math.floor(parseFloat(data[index].overatedPercent) * 100).toString();
     $('.result').html(`
     <p>${value}% of people agree with you</p>
-    `)
-    $('.result-wrap').hide().fadeIn(1600, 'linear')
-    app.graph(value)
+    `);
+    $('.result-wrap').hide().fadeIn(1600, 'linear');
+    app.graph(value);
   }
-}
+};
 
+// Called in app.returnInfo to increment total user count for each item
 app.updateUserCount = (itemName, newVal) => {
   $.ajax({
     type: 'PATCH',
@@ -57,8 +62,9 @@ app.updateUserCount = (itemName, newVal) => {
     },
     success: app.successFunc
   });
-}
+};
 
+// Called in app.returnInfo to increment overrated count for each item
 app.updateOverRatedCount = (itemName, newVal) => {
   $.ajax({
     type: 'PATCH',
@@ -68,8 +74,9 @@ app.updateOverRatedCount = (itemName, newVal) => {
     },
     success: app.successFunc
   });
-}
+};
 
+// Called in app.returnInfo to increment total underrated count for each item
 app.updateUnderRatedCount = (itemName, newVal) => {
   $.ajax({
     type: 'PATCH',
@@ -79,8 +86,9 @@ app.updateUnderRatedCount = (itemName, newVal) => {
     },
     success: app.successFunc
   });
-}
+};
 
+// Called in app.returnInfo to increment total adequately rated count for each item
 app.updateAccuratelyRatedCount = (itemName, newVal) => {
   $.ajax({
     type: 'PATCH',
@@ -90,83 +98,94 @@ app.updateAccuratelyRatedCount = (itemName, newVal) => {
     },
     success: app.successFunc
   });
-}
+};
 
+// Stores event listeneners on user options
 app.userChoice = () => {
   $('[data-selection="over-rated"]').on('click', function () {
     const currentItem = $(this).attr('class');
-    const currentItemIndex = parseInt($(this).attr('data-index'))
-    app.returnInfo(app.updateOverRatedCount, currentItem, currentItemIndex, 'overatedCount')
-    app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, 'userCount')
-    app.hideButtonWrap()
-    $('.flickity-prev-next-button.next ').fadeIn(1600, 'linear')
-  })
+    const currentItemIndex = parseInt($(this).attr('data-index'));
+    app.returnInfo(app.updateOverRatedCount, currentItem, currentItemIndex, 'overatedCount');
+    app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, 'userCount');
+    app.hideButtonWrap();
+    $('.flickity-prev-next-button.next ').fadeIn(1600, 'linear');
+  });
 
   $('[data-selection="under-rated"]').on('click', function () {
     const currentItem = $(this).attr('class');
-    const currentItemIndex = parseInt($(this).attr('data-index'))
-    app.returnInfo(app.updateUnderRatedCount, currentItem, currentItemIndex, 'underatedCount')
-    app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, 'userCount')
-    app.hideButtonWrap()
-    $('.flickity-prev-next-button.next ').fadeIn(1600, 'linear')
-  })
+    const currentItemIndex = parseInt($(this).attr('data-index'));
+    app.returnInfo(app.updateUnderRatedCount, currentItem, currentItemIndex, 'underatedCount');
+    app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, 'userCount');
+    app.hideButtonWrap();
+    $('.flickity-prev-next-button.next ').fadeIn(1600, 'linear');
+  });
 
   $('[data-selection="accurately-rated"]').on('click', function () {
     const currentItem = $(this).attr('class');
-    const currentItemIndex = parseInt($(this).attr('data-index'))
-    app.returnInfo(app.updateAccuratelyRatedCount, currentItem, currentItemIndex, 'accuratelyRatedCount')
-    app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, 'userCount')
-    app.hideButtonWrap()
-    $('.flickity-prev-next-button.next ').fadeIn(1600, 'linear')
-  })
-}
+    const currentItemIndex = parseInt($(this).attr('data-index'));
+    app.returnInfo(app.updateAccuratelyRatedCount, currentItem, currentItemIndex, 'accuratelyRatedCount');
+    app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, 'userCount');
+    app.hideButtonWrap();
+    $('.flickity-prev-next-button.next ').fadeIn(1600, 'linear');
+  });
+};
 
+// Hides option buttons after user choice
 app.hideButtonWrap = () => {
-  $('.button-wrap').fadeOut(1400, 'linear')
-}
+  $('.button-wrap').fadeOut(1400, 'linear');
+};
 
+// Shows buttons at next slide
 app.showButtonWrap = () => {
   $('.next').on('click', function () {
-    $('.button-wrap').fadeIn(1600, 'linear')
-    $('.result-wrap').hide()
-    $('.result').html('')
-    $('.graph').css('width', '0%')
-  })
-}
+    $('.button-wrap').fadeIn(1600, 'linear');
+    $('.result-wrap').hide();
+    $('.result').html('');
+    $('.graph').css('width', '0%');
+  });
+};
 
+// Postions arrow in the middle..ish of the img container
 app.calcArrowPosition = () => {
-  let $halfImgHeight = $('.carousel-img').height() * 0.5
-  $('.flickity-prev-next-button.next').hide().css('top', `${$halfImgHeight}px`)
-}
+  let $halfImgHeight = $('.carousel-img').height() * 0.5;
+  $('.flickity-prev-next-button.next').hide().css('top', `${$halfImgHeight}px`);
+};
 
+// Ensures arrow is positioned correctly as screen changes
 app.positionArrow = () => {
   $(window).resize(function () {
-    app.calcArrowPosition()
-  })
-}
+    app.calcArrowPosition();
+  });
+};
 
+// Hides arrow after user choice
 app.hideArrow = () => {
   $('.flickity-prev-next-button.next').on('click', function () {
-    $('.flickity-prev-next-button.next').fadeOut(1600, 'linear')
-  })
-}
+    $('.flickity-prev-next-button.next').fadeOut(1600, 'linear');
+  });
+};
 
+// Smooth scroll from landing page to carousel -  researched from StackOver Flow
 app.scrollToCarousel = () => {
+  // Listens for click on down arrow button
   $('.down-arrow').on('click', function () {
+    // What I think is happening here is that the distance from the top of the page to the top of the main-carousel is being calculated & then passed as the property to animate, 1600 is the duration of the animation in milliseconds
     $('html, body').animate({
       scrollTop: $('.main-carousel').offset().top
-    }, 1600)
-  })
-}
+    }, 1600);
+  });
+};
 
+// Sets empty graph div to height of the result div & animates the width to the percentage of other user who made the same choice
 app.graph = (value) => {
-  let $resultHeight = $('.result').height()
-  $('.graph').css('min-height', `${$resultHeight}px`)
+  let $resultHeight = $('.result').height();
+  $('.graph').css('min-height', `${$resultHeight}px`);
   $('.graph').animate({
     width: `${value}%`
-  }, 1800)
-}
+  }, 1800);
+};
 
+// Initialize event listeners & apps to be called at page load
 app.init = () => {
   app.flickGallery();
   app.userChoice();
@@ -177,6 +196,12 @@ app.init = () => {
   app.scrollToCarousel();
 }
 
+// Blast off!!
 $(document).ready(function () {
   app.init();
 });
+
+/*
+The API can be found here https://sheetsu.com/apis/v1.0su/6dd50df793f9
+It's not 100% reliable, it sends the data 10 times out of 10 but I would say it updates accuraltely 7 out of 10
+*/
