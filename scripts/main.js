@@ -31,21 +31,21 @@ app.returnPercentage = (index, column, data) => {
   if (column === 'overatedCount') {
     let value = Math.floor(parseFloat(data[index].overatedPercent) * 100).toString();
     $('.result').html(`
-    <p>${value}% of people agree with you</p>
+    <p>${value}% of respondents agree with you</p>
     `);
     $('.result-wrap').hide().fadeIn(1600, 'linear');
     app.graph(value);
   } else if (column === 'underatedCount') {
     let value = Math.floor(parseFloat(data[index].overatedPercent) * 100).toString();
     $('.result').html(`
-    <p>${value}% of people agree with you</p>
+    <p>${value}% of respondents agree with you</p>
     `);
     $('.result-wrap').hide().fadeIn(1600, 'linear');
     app.graph(value);
   } else if (column === 'accuratelyRatedCount') {
     let value = Math.floor(parseFloat(data[index].overatedPercent) * 100).toString();
     $('.result').html(`
-    <p>${value}% of people agree with you</p>
+    <p>${value}% of respondents agree with you</p>
     `);
     $('.result-wrap').hide().fadeIn(1600, 'linear');
     app.graph(value);
