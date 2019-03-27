@@ -28,41 +28,13 @@ app.returnInfo = (func, itemName, index, column) => {
 
 // Converts data returned on historical user choices to % & displays on DOM
 app.returnPercentage = (index, column, data) => {
-  if (column === 'overatedCount') {
-    let value = Math.floor(parseFloat(data[index].overatedPercent) * 100).toString();
-    $('.result').html(`
+  let value = Math.floor(parseFloat(data[index].overatedPercent) * 100).toString();
+  $('.result').html(`
     <p>${value}% of respondents agree with you</p>
     `);
-    $('.result-wrap').hide().fadeIn(1600, 'linear');
-    app.graph(value);
-  } else if (column === 'underatedCount') {
-    let value = Math.floor(parseFloat(data[index].overatedPercent) * 100).toString();
-    $('.result').html(`
-    <p>${value}% of respondents agree with you</p>
-    `);
-    $('.result-wrap').hide().fadeIn(1600, 'linear');
-    app.graph(value);
-  } else if (column === 'accuratelyRatedCount') {
-    let value = Math.floor(parseFloat(data[index].overatedPercent) * 100).toString();
-    $('.result').html(`
-    <p>${value}% of respondents agree with you</p>
-    `);
-    $('.result-wrap').hide().fadeIn(1600, 'linear');
-    app.graph(value);
-  }
-};
-
-// Called in app.returnInfo to increment total user count for each item
-app.updateUserCount = (itemName, newVal) => {
-  $.ajax({
-    type: 'PATCH',
-    url: `https://sheetsu.com/apis/v1.0bu/6dd50df793f9/item/${itemName}`,
-    data: {
-      'userCount': newVal
-    },
-    success: app.successFunc
-  });
-};
+  $('.result-wrap').hide().fadeIn(1600, 'linear');
+  app.graph(value);
+}
 
 // Called in app.returnInfo to increment overrated count for each item
 app.updateOverRatedCount = (itemName, newVal) => {
@@ -106,7 +78,6 @@ app.userChoice = () => {
     const currentItem = $(this).attr('class');
     const currentItemIndex = parseInt($(this).attr('data-index'));
     app.returnInfo(app.updateOverRatedCount, currentItem, currentItemIndex, 'overatedCount');
-    app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, 'userCount');
     app.hideButtonWrap();
     $('.flickity-prev-next-button.next ').fadeIn(1600, 'linear');
   });
@@ -115,7 +86,6 @@ app.userChoice = () => {
     const currentItem = $(this).attr('class');
     const currentItemIndex = parseInt($(this).attr('data-index'));
     app.returnInfo(app.updateUnderRatedCount, currentItem, currentItemIndex, 'underatedCount');
-    app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, 'userCount');
     app.hideButtonWrap();
     $('.flickity-prev-next-button.next ').fadeIn(1600, 'linear');
   });
@@ -124,7 +94,6 @@ app.userChoice = () => {
     const currentItem = $(this).attr('class');
     const currentItemIndex = parseInt($(this).attr('data-index'));
     app.returnInfo(app.updateAccuratelyRatedCount, currentItem, currentItemIndex, 'accuratelyRatedCount');
-    app.returnInfo(app.updateUserCount, currentItem, currentItemIndex, 'userCount');
     app.hideButtonWrap();
     $('.flickity-prev-next-button.next ').fadeIn(1600, 'linear');
   });
