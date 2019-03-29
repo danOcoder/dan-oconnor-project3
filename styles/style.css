@@ -233,6 +233,15 @@ img {
   max-width: 100%;
   display: block; }
 
+#mojalContainer {
+  position: absolute; }
+
+.mojalHidden {
+  opacity: 0; }
+
+.mojalShow {
+  opacity: 1; }
+
 /**** Header ****/
 header {
   min-height: 30vh;
@@ -257,7 +266,7 @@ header {
   border: none;
   color: #192231; }
   .flickity-button:hover {
-    color: #985E6D;
+    color: #985e6d;
     background: rgba(72, 77, 106, 0.73); }
 
 .flickity-prev-next-button.next {
@@ -310,14 +319,14 @@ main {
   .button-wrap button {
     font-size: 1.333rem;
     color: #192231;
-    background-color: #985E6D;
+    background-color: #985e6d;
     border: none;
     border-radius: 5px;
     margin: 15px auto;
     padding: 20px 20px; }
     .button-wrap button:hover {
       color: #ffffff;
-      background-color: #494E6B;
+      background-color: #494e6b;
       -webkit-transform: scale(1.25);
       -ms-transform: scale(1.25);
       transform: scale(1.25); }
@@ -333,7 +342,7 @@ main {
     padding: 25px 0; }
 
 .graph {
-  background-color: #985E6D;
+  background-color: #985e6d;
   width: 0%; }
 
 /**** Footer ****/
@@ -365,11 +374,11 @@ footer {
     height: 50px;
     border: 1px solid transparent;
     border-radius: 50%;
-    background-color: #494E6B;
-    color: #985E6D; }
+    background-color: #494e6b;
+    color: #985e6d; }
     .social-icons .social-button:hover {
-      background-color: #985E6D;
-      color: #494E6B;
+      background-color: #985e6d;
+      color: #494e6b;
       -webkit-transform: scale(1.5);
       -ms-transform: scale(1.5);
       transform: scale(1.5); }
@@ -450,12 +459,12 @@ footer {
     width: 90px;
     height: 90px;
     border-radius: 50%;
-    background-color: #494E6B;
-    color: #985E6D;
+    background-color: #494e6b;
+    color: #985e6d;
     cursor: pointer; }
     .down-arrow:hover {
-      background-color: #985E6D;
-      color: #494E6B;
+      background-color: #985e6d;
+      color: #494e6b;
       -webkit-transform: scale(1.25);
       -ms-transform: scale(1.25);
       transform: scale(1.25); }

@@ -1,16 +1,13 @@
 /**** Variables ****/
 
 $lightPurple: #98878f;
-$purple: #985E6D;
-$lightBlue: #494E6B;
-$darkBlue:#192231;
+$purple: #985e6d;
+$lightBlue: #494e6b;
+$darkBlue: #192231;
 $white: #ffffff;
 
-$heading: 'Major Mono Display',
-monospace;
-$body: 'Roboto Mono',
-monospace;
-
+$heading: 'Major Mono Display', monospace;
+$body: 'Roboto Mono', monospace;
 
 /**** Global Styles ****/
 
@@ -72,6 +69,18 @@ img {
   height: auto;
   max-width: 100%;
   display: block;
+}
+
+#mojalContainer {
+  position: absolute;
+}
+
+.mojalHidden {
+  opacity: 0;
+}
+
+.mojalShow {
+  opacity: 1;
 }
 
 /**** Header ****/
@@ -172,7 +181,6 @@ main {
   position: absolute;
 
   p {
-
     padding: 25px 0;
   }
 }
