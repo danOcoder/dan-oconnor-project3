@@ -45,11 +45,7 @@ app.returnPercentage = (index, column, data) => {
     .hide()
     .fadeIn(1600, 'linear');
   app.graph(value);
-  if (index === 0) {
-    $('#mojalContainer')
-      .removeClass('mojalHidden')
-      .addClass('mojalShow');
-  }
+  app.showArrow();
 };
 
 // Called in app.returnInfo to increment overrated count for each item
@@ -88,7 +84,7 @@ app.updateAccuratelyRatedCount = (itemName, newVal) => {
   });
 };
 
-// Stores event listeneners on user options
+// Stores event listeners on user options
 app.userChoice = () => {
   $('[data-selection="over-rated"]').on('click', function() {
     const currentItem = $(this).attr('class');
@@ -100,7 +96,6 @@ app.userChoice = () => {
       'overatedCount'
     );
     app.hideButtonWrap();
-    $('.flickity-prev-next-button.next ').fadeIn(1600, 'linear');
   });
 
   $('[data-selection="under-rated"]').on('click', function() {
@@ -113,7 +108,6 @@ app.userChoice = () => {
       'underatedCount'
     );
     app.hideButtonWrap();
-    $('.flickity-prev-next-button.next ').fadeIn(1600, 'linear');
   });
 
   $('[data-selection="accurately-rated"]').on('click', function() {
@@ -126,7 +120,6 @@ app.userChoice = () => {
       'accuratelyRatedCount'
     );
     app.hideButtonWrap();
-    $('.flickity-prev-next-button.next ').fadeIn(1600, 'linear');
   });
 };
 
@@ -145,7 +138,7 @@ app.showButtonWrap = () => {
   });
 };
 
-// Postions arrow in the middle..ish of the img container
+// Positions arrow in the middle..ish of the img container
 app.calcArrowPosition = () => {
   let $halfImgHeight = $('.carousel-img').height() * 0.5;
   $('.flickity-prev-next-button.next')
@@ -165,6 +158,11 @@ app.hideArrow = () => {
   $('.flickity-prev-next-button.next').on('click', function() {
     $('.flickity-prev-next-button.next').fadeOut(1600, 'linear');
   });
+};
+
+// Shows arrow after results displayed
+app.showArrow = () => {
+  $('.flickity-prev-next-button.next ').fadeIn(1600, 'linear');
 };
 
 // Smooth scroll from landing page to carousel -  researched from StackOver Flow

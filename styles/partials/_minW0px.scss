@@ -37,6 +37,7 @@ h2 {
 }
 
 p,
+a,
 .button-wrap button,
 .social-button i {
   font-size: 1.333rem;
@@ -44,13 +45,18 @@ p,
 
 h1,
 h2,
-p {
+p,
+a {
   color: $white;
 }
 
 p,
 .selection {
   font-family: $body;
+}
+
+.viewWrapper {
+  position: relative;
 }
 
 .wrapper {
@@ -106,6 +112,10 @@ header {
     color: $purple;
     background: hsla(231, 19%, 35%, 0.73);
   }
+
+  &:disabled {
+    opacity: 0;
+  }
 }
 
 .flickity-prev-next-button.next {
@@ -114,7 +124,6 @@ header {
   top: 15%;
   right: 40%;
 }
-
 /**** Main ****/
 
 main {
@@ -178,17 +187,26 @@ main {
   width: 0%;
 }
 
-/**** Footer ****/
+.contact-wrap {
+  margin-top: 20%;
+}
 
-footer {
-  padding: 1px;
+.contact-wrap {
+  h2,
+  p {
+    margin-bottom: 30px;
+  }
+}
+
+.bold {
+  font-weight: 900;
 }
 
 .social-icons {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin: 0 auto 60px;
+  margin: 0 auto;
 
   .social-button {
     display: flex;
@@ -204,7 +222,13 @@ footer {
     &:hover {
       background-color: $purple;
       color: $lightBlue;
-      transform: scale(1.5);
+      transform: scale(1.15);
     }
   }
+}
+
+/**** Footer ****/
+
+footer {
+  padding: 1px;
 }
