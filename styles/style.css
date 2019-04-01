@@ -233,15 +233,6 @@ img {
   max-width: 100%;
   display: block; }
 
-#mojalContainer {
-  position: absolute; }
-
-.mojalHidden {
-  opacity: 0; }
-
-.mojalShow {
-  opacity: 1; }
-
 /**** Header ****/
 header {
   min-height: 30vh;
