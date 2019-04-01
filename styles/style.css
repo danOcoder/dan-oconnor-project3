@@ -205,18 +205,23 @@ h2 {
   font-family: "Major Mono Display", monospace; }
 
 p,
+a,
 .button-wrap button,
 .social-button i {
   font-size: 1.333rem; }
 
 h1,
 h2,
-p {
+p,
+a {
   color: #ffffff; }
 
 p,
 .selection {
   font-family: "Roboto Mono", monospace; }
+
+.viewWrapper {
+  position: relative; }
 
 .wrapper {
   width: 90%;
@@ -232,15 +237,6 @@ img {
   height: auto;
   max-width: 100%;
   display: block; }
-
-#mojalContainer {
-  position: absolute; }
-
-.mojalHidden {
-  opacity: 0; }
-
-.mojalShow {
-  opacity: 1; }
 
 /**** Header ****/
 header {
@@ -268,6 +264,8 @@ header {
   .flickity-button:hover {
     color: #985e6d;
     background: rgba(72, 77, 106, 0.73); }
+  .flickity-button:disabled {
+    opacity: 0; }
 
 .flickity-prev-next-button.next {
   width: 90px;
@@ -345,9 +343,15 @@ main {
   background-color: #985e6d;
   width: 0%; }
 
-/**** Footer ****/
-footer {
-  padding: 1px; }
+.contact-wrap {
+  margin-top: 20%; }
+
+.contact-wrap h2,
+.contact-wrap p {
+  margin-bottom: 30px; }
+
+.bold {
+  font-weight: 900; }
 
 .social-icons {
   display: -webkit-box;
@@ -359,7 +363,7 @@ footer {
   flex-direction: row;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  margin: 0 auto 60px; }
+  margin: 0 auto; }
   .social-icons .social-button {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -379,9 +383,13 @@ footer {
     .social-icons .social-button:hover {
       background-color: #985e6d;
       color: #494e6b;
-      -webkit-transform: scale(1.5);
-      -ms-transform: scale(1.5);
-      transform: scale(1.5); }
+      -webkit-transform: scale(1.15);
+      -ms-transform: scale(1.15);
+      transform: scale(1.15); }
+
+/**** Footer ****/
+footer {
+  padding: 1px; }
 
 @media (min-width: 480px) {
   /**** Header ****/
