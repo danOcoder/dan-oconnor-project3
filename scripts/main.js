@@ -198,7 +198,7 @@ app.init = () => {
   app.showButtonWrap();
   app.calcArrowPosition();
   app.positionArrow();
-  // app.hideArrow();
+  app.hideArrow();
   app.scrollToCarousel();
 };
 
