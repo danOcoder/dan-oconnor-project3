@@ -1,14 +1,10 @@
 @media (min-width: 1400px) {
-  /**** Global Styles ****/
-
   h1 {
     font-size: 2.5rem;
     padding: 110px 0 60px 0;
     margin: 0 auto;
     width: 50%;
   }
-
-  /**** Header ****/
 
   header {
     min-height: 100vh;
@@ -37,15 +33,11 @@
     }
   }
 
-  /**** Flickity ****/
-
   .main-carousel {
     width: 60%;
     margin: 0 auto;
     padding-top: 40px;
   }
-
-  /**** Main ****/
 
   .content-wrap {
     margin-bottom: 80px;

@@ -1,27 +1,15 @@
 @media (min-width: 768px) {
-
-  /**** Global Styles ****/
-
   html {
     font-size: 125%;
-    /*
-      62.5% = units of 10px
-      93.7% = units of 15px
-      125% = units of 20px
-       */
   }
 
   h1 {
     padding: 120px 0 60px 0;
   }
 
-  /**** Header ****/
-
   header {
     min-height: 60vh;
   }
-
-  /**** Flickity ****/
 
   .main-carousel {
     width: 90%;
@@ -33,13 +21,7 @@
     height: 110px;
   }
 
-
-  /**** Main ****/
-
   .button-wrap {
     flex-direction: row;
   }
-
-
-
 }

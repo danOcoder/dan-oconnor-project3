@@ -9,9 +9,7 @@ app.flickGallery = () => {
   });
 };
 
-app.successFunc = data => {
-  // console.log(data);
-};
+app.successFunc = data => {};
 
 // Makes a call to API to return data
 app.returnInfo = (func, itemName, index, column) => {
@@ -165,11 +163,9 @@ app.showArrow = () => {
   $('.flickity-prev-next-button.next ').fadeIn(1600, 'linear');
 };
 
-// Smooth scroll from landing page to carousel -  researched from StackOver Flow
+// Smooth scroll from landing page to carousel
 app.scrollToCarousel = () => {
-  // Listens for click on down arrow button
   $('.down-arrow').on('click', function() {
-    // What I think is happening here is that the distance from the top of the page to the top of the main-carousel is being calculated & then passed as the property to animate, 1600 is the duration of the animation in milliseconds
     $('html, body').animate(
       {
         scrollTop: $('.main-carousel').offset().top
