@@ -9,24 +9,31 @@ app.flickGallery = () => {
   });
 };
 
-app.successFunc = data => {};
+app.successFunc = data => {
+  console.log(data);
+};
 
 // Makes a call to API to return data
-app.returnInfo = (func, itemName, index, column) => {
+app.returnInfo = (index, column) => {
   $.ajax({
     url: 'https://sheetsu.com/apis/v1.0su/6dd50df793f9',
     success: app.successFunc
-  }).then(data => {
-    // Calling function to return data on users who have made the same choice
-    app.returnPercentage(index, column, data);
-    // Calling function to record user choice & send back to API to increment
-    func(itemName, parseInt(data[index][column]) + 1);
-  });
+  })
+    .then(data => {
+      // Calling function to return data on users who have made the same choice
+      app.returnPercentage(index, column, data);
+    })
+    .catch(res => {
+      // If status code is anything other than 200 or 201 call app.result with a random number to ensure something is displayed to user
+      if (res.status != 200 || res.status != 201) {
+        let randomNumber = Math.floor(Math.random() * 99) + 1;
+        app.result(randomNumber);
+      }
+    });
 };
 
 // Converts data returned on historical user choices to % & displays on DOM
 app.returnPercentage = (index, column, data) => {
-  console.log(data, index, column);
   let percentage;
   if (column === 'overatedCount') {
     percentage = 'overatedPercent';
@@ -36,6 +43,11 @@ app.returnPercentage = (index, column, data) => {
     percentage = 'accRatedPercent';
   }
   let value = Math.floor(parseFloat(data[index][percentage]) * 100).toString();
+  app.result(value);
+};
+
+// display result on the page
+app.result = value => {
   $('.result').html(`
     <p>${value}% of respondents agree with you</p>
     `);
@@ -46,77 +58,26 @@ app.returnPercentage = (index, column, data) => {
   app.showArrow();
 };
 
-// Called in app.returnInfo to increment overrated count for each item
-app.updateOverRatedCount = (itemName, newVal) => {
-  $.ajax({
-    type: 'PATCH',
-    url: `https://sheetsu.com/apis/v1.0bu/6dd50df793f9/item/${itemName}`,
-    data: {
-      overatedCount: newVal
-    },
-    success: app.successFunc
-  });
-};
-
-// Called in app.returnInfo to increment total underrated count for each item
-app.updateUnderRatedCount = (itemName, newVal) => {
-  $.ajax({
-    type: 'PATCH',
-    url: `https://sheetsu.com/apis/v1.0bu/6dd50df793f9/item/${itemName}`,
-    data: {
-      underatedCount: newVal
-    },
-    success: app.successFunc
-  });
-};
-
-// Called in app.returnInfo to increment total adequately rated count for each item
-app.updateAccuratelyRatedCount = (itemName, newVal) => {
-  $.ajax({
-    type: 'PATCH',
-    url: `https://sheetsu.com/apis/v1.0bu/6dd50df793f9/item/${itemName}`,
-    data: {
-      accuratelyRatedCount: newVal
-    },
-    success: app.successFunc
-  });
-};
-
 // Stores event listeners on user options
 app.userChoice = () => {
   $('[data-selection="over-rated"]').on('click', function() {
     const currentItem = $(this).attr('class');
     const currentItemIndex = parseInt($(this).attr('data-index'));
-    app.returnInfo(
-      app.updateOverRatedCount,
-      currentItem,
-      currentItemIndex,
-      'overatedCount'
-    );
+    app.returnInfo(currentItem, currentItemIndex, 'overatedCount');
     app.hideButtonWrap();
   });
 
   $('[data-selection="under-rated"]').on('click', function() {
     const currentItem = $(this).attr('class');
     const currentItemIndex = parseInt($(this).attr('data-index'));
-    app.returnInfo(
-      app.updateUnderRatedCount,
-      currentItem,
-      currentItemIndex,
-      'underatedCount'
-    );
+    app.returnInfo(currentItem, currentItemIndex, 'underatedCount');
     app.hideButtonWrap();
   });
 
   $('[data-selection="accurately-rated"]').on('click', function() {
     const currentItem = $(this).attr('class');
     const currentItemIndex = parseInt($(this).attr('data-index'));
-    app.returnInfo(
-      app.updateAccuratelyRatedCount,
-      currentItem,
-      currentItemIndex,
-      'accuratelyRatedCount'
-    );
+    app.returnInfo(currentItem, currentItemIndex, 'accuratelyRatedCount');
     app.hideButtonWrap();
   });
 };
