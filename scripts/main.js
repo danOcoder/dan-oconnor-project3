@@ -84,7 +84,7 @@ app.userChoice = () => {
 
 // Hides option buttons after user choice
 app.hideButtonWrap = () => {
-  $('.button-wrap').fadeOut(1400, 'linear');
+  $('.button-wrap').fadeOut(400, 'linear', function() {});
 };
 
 // Shows buttons at next slide
@@ -144,7 +144,7 @@ app.graph = value => {
     {
       width: `${value}%`
     },
-    1800
+    900
   );
 };
 
